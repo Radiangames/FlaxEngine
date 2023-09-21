@@ -60,11 +60,6 @@ namespace FlaxEditor.Surface
         protected bool _rightMouseDown;
 
         /// <summary>
-        /// The middle mouse down flag.
-        /// </summary>
-        protected bool _middleMouseDown;
-
-        /// <summary>
         /// The left mouse down position.
         /// </summary>
         protected Float2 _leftMouseDownPos = Float2.Minimum;
@@ -73,11 +68,6 @@ namespace FlaxEditor.Surface
         /// The right mouse down position.
         /// </summary>
         protected Float2 _rightMouseDownPos = Float2.Minimum;
-
-        /// <summary>
-        /// The middle mouse down position.
-        /// </summary>
-        protected Float2 _middleMouseDownPos = Float2.Minimum;
 
         /// <summary>
         /// The mouse position.

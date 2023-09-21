@@ -213,21 +213,6 @@ namespace FlaxEditor.Surface
                 return;
             }
 
-            if (_middleMouseDown) {
-                // Calculate delta
-                var delta = location - _middleMouseDownPos;
-                if (delta.LengthSquared > 0.01f) {
-                    // Move view
-                    _mouseMoveAmount += delta.Length;
-                    _rootControl.Location += delta;
-                    _middleMouseDownPos = location;
-                    Cursor = CursorType.SizeAll;
-                }
-
-                // Handled
-                return;
-            }
-
             // Check if user is selecting or moving node(s)
             if (_leftMouseDown)
             {
@@ -282,10 +267,6 @@ namespace FlaxEditor.Surface
             if (_rightMouseDown)
             {
                 _rightMouseDown = false;
-                Cursor = CursorType.Default;
-            }
-            if (_middleMouseDown) {
-                _middleMouseDown = false;
                 Cursor = CursorType.Default;
             }
             _isMovingSelection = false;
@@ -399,7 +380,6 @@ namespace FlaxEditor.Surface
                 _isMovingSelection = false;
                 _rightMouseDown = false;
                 _leftMouseDown = false;
-                _middleMouseDown = false;
                 return true;
             }
 
@@ -418,12 +398,6 @@ namespace FlaxEditor.Surface
             {
                 _rightMouseDown = true;
                 _rightMouseDownPos = location;
-                Debug.Log("The right mouse button is down in a window");
-            }
-            if (button == MouseButton.Middle) {
-                _middleMouseDown = true;
-                _middleMouseDownPos = location;
-                Debug.Log("The middle mouse button is down in a window");
             }
 
             // Check if any node is under the mouse
@@ -470,7 +444,7 @@ namespace FlaxEditor.Surface
                     Focus();
                     return true;
                 }
-                if (_rightMouseDown || _middleMouseDown)
+                if (_rightMouseDown)
                 {
                     // Start navigating
                     StartMouseCapture();
@@ -539,12 +513,6 @@ namespace FlaxEditor.Surface
                 }
                 _mouseMoveAmount = 0;
             }
-            if (_middleMouseDown && button == MouseButton.Middle) {
-                _middleMouseDown = false;
-                EndMouseCapture();
-                Cursor = CursorType.Default;
-                _mouseMoveAmount = 0;
-            }
 
             // Base
             bool handled = base.OnMouseUp(location, button);
@@ -555,7 +523,6 @@ namespace FlaxEditor.Surface
                 // Clear flags
                 _rightMouseDown = false;
                 _leftMouseDown = false;
-                _middleMouseDown = false;
                 return true;
             }
 

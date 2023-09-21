@@ -112,7 +112,6 @@ namespace FlaxEditor.GUI
                 -TextBoxBackground
                 -TextBoxBackgroundSelected
                 -ProgressNormal
-                -ViewportButtonText
                 */
 
                 var size = new Float2(r.Width / 7f, r.Height / 2f);

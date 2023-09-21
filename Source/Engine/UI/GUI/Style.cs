@@ -165,12 +165,6 @@ namespace FlaxEngine.GUI
         public Color ProgressNormal;
 
         /// <summary>
-        /// The color for text of viewport buttons (mouse speed, etc).
-        /// </summary>
-        [EditorOrder(205)]
-        public Color ViewportButtonText;
-
-        /// <summary>
         /// The arrow right icon.
         /// </summary>
         [EditorOrder(220)]

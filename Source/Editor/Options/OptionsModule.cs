@@ -243,7 +243,6 @@ namespace FlaxEditor.Options
                 TextBoxBackgroundSelected = Color.FromBgra(0xFF3F3F46),
                 CollectionBackgroundColor = Color.FromBgra(0x14CCCCCC),
                 ProgressNormal = Color.FromBgra(0xFF0ad328),
-                ViewportButtonText = Color.FromBgra(0xFFFFFFFF),
 
                 // Fonts
                 FontTitle = options.Interface.TitleFont.GetFont(),
